@@ -416,3 +416,30 @@ h6,
 .copyright a:hover {
     color: var(--light);
 }
+
+/* Adicione seu estilo aqui */
+.team-item {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+}
+
+.team-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.team-text {
+    padding: 10px 0;
+}
+
+.team-title h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.team-social .btn {
+    margin: 5px;
+}

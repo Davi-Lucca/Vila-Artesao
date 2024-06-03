@@ -1,0 +1,35 @@
+[
+    {
+      "nome": "Artesão 1",
+      "especialidade": "Cerâmica",
+      "imagem": "img/artesao2.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#"
+    },
+    {
+      "nome": "Artesão 2",
+      "especialidade": "Madeira",
+      "imagem": "img/artesao3.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#"
+    },
+    {
+      "nome": "Artesão 3",
+      "especialidade": "Tecelagem",
+      "imagem": "img/artesao4.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#"
+    },
+    {
+      "nome": "Artesão 4",
+      "especialidade": "Pintura",
+      "imagem": "img/artesao2.jpg",
+      "facebook": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  ]
+  
