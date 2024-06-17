@@ -198,7 +198,7 @@
                                 <i class="fa fa-check text-primary me-2"></i>Feitos na hora.
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Saiba Mais</a>
+                        
                     </div>
                 </div>
             </div>
@@ -227,61 +227,19 @@
                 </div>
             </div>
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">// Explore nossos produtos</p>
-                <h1 class="display-6 mb-4">Conheça nossos artesãos e seus produtos</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">R$20,00 - R$30,00</div>
-                            <h3 class="mb-3">Potes de barro</h3>
-                            <span>Potes de barro artesanais ideais para condimentos em eventos rústicos ou decoração de ambientes campestres.</span>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/artesanato1.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$15,00 - R$27,00</div>
-                            <h3 class="mb-3">Boneca saia rodada</h3>
-                            <span>Bonecas saia rodada, perfeitas para decoração e colecionismo, trazendo charme e rusticidade para ambientes.</span>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/artesanato2.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">R$30,99 - R$72,90</div>
-                            <h4 class="mb-3">Arupembas</h4>
-                            <span>Artesanato em arupembas, esculturas únicas e criativas, representando a cultura e a arte local, ideais para colecionadores e decoração de ambientes.</span>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/artesanato3.jpg" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
+                <h1 class="display-6 mb-4">Conheça nossos artesãos e seus produtos</h1>
             </div>
         </div>
     </div>
     <!-- Produtos End -->
 
+    <!-- Seção de produtos -->
+    <div class="container">
+        <div class="row g-4" id="listaProdutos">
+            <!-- Produtos serão inseridos aqui dinamicamente -->
+        </div>
+    </div><br><br><br><br>
 
     <!-- Serviços Start -->
     <div class="container-xxl py-6">
@@ -344,7 +302,6 @@
     </div>
     <!-- Serviços End -->
 
-
     <!-- Profissionais Start -->
     <div class="container-xxl py-6">
         <div class="container">
@@ -357,6 +314,13 @@
         </div>
     </div>
     <!-- Profissionais End -->
+
+    <!-- Estrutura HTML para exibir os artesãos -->
+    <div class="container">
+        <div class="row g-4" id="artesoes-container">
+            <!-- Os artesãos serão inseridos aqui -->
+        </div>
+    </div>
 
 
 
@@ -439,7 +403,89 @@
     <!-- No final do corpo do HTML -->
     <script src="script.js"></script>
 
+    <!--js para artesãos-->
+    <script>
+        // Função para carregar os dados dos artesãos a partir do JSON
+    function carregarArtesaos() {
+        fetch('artesaos.json') // Carrega o arquivo JSON
+            .then(response => response.json()) // Converte a resposta para JSON
+            .then(artesaos => {
+                const artesaosContainer = document.getElementById('artesoes-container'); // Elemento onde os artesãos serão inseridos
 
+                // Para cada artesão no JSON, cria um bloco de informações
+                artesaos.forEach(artesao => {
+                    const artesaoHTML = `
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="card h-100">
+                            <img src="${artesao.imagem}" class="card-img-top" alt="${artesao.nome}">
+                            <div class="card-body">
+                                <h5 class="card-title">${artesao.nome}</h5>
+                                <p class="card-text">${artesao.especialidade}</p>
+                                <div class="social-links">
+                                    <a href="${artesao.facebook}" class="social-link" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="${artesao.twitter}" class="social-link" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="${artesao.instagram}" class="social-link" target="_blank"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    artesaosContainer.innerHTML += artesaoHTML; // Adiciona o bloco de informações do artesão ao contêiner
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao carregar os dados dos artesãos:', error);
+            });
+    }
+
+    // Chama a função para carregar os artesãos quando a página estiver totalmente carregada
+    document.addEventListener('DOMContentLoaded', carregarArtesaos);
+
+    </script>
+
+    <script>
+        // Função para carregar produtos do arquivo JSON e inserir dinamicamente no HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            var url = 'produtos.json'; // Caminho para o seu arquivo JSON
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        var produtos = JSON.parse(xhr.responseText).produtos;
+                        var listaProdutos = document.getElementById('listaProdutos');
+
+                        produtos.forEach(function(produto) {
+                            var produtoHTML = `
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                                        <div class="text-center p-4">
+                                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">${produto.preco}</div>
+                                            <h3 class="mb-3">${produto.nome}</h3>
+                                            <span>${produto.descricao}</span>
+                                        </div>
+                                        <div class="position-relative mt-auto">
+                                            <img class="img-fluid" src="${produto.imagem}" alt="${produto.nome}">
+                                            <div class="product-overlay">
+                                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href="#"><i class="fa fa-eye text-primary"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+
+                            listaProdutos.innerHTML += produtoHTML;
+                        });
+                    } else {
+                        console.error('Erro ao carregar os dados do arquivo JSON.');
+                    }
+                }
+            };
+
+            xhr.open('GET', url, true);
+            xhr.send();
+        });
+    </script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

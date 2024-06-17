@@ -1,0 +1,23 @@
+{
+    "produtos": [
+      {
+        "preco": "R$20,00 - R$30,00",
+        "nome": "Potes de barro",
+        "descricao": "Potes de barro artesanais ideais para condimentos em eventos rústicos ou decoração de ambientes campestres.",
+        "imagem": "img/artesanato1.jpg"
+      },
+      {
+        "preco": "R$15,00 - R$27,00",
+        "nome": "Boneca saia rodada",
+        "descricao": "Bonecas saia rodada, perfeitas para decoração e colecionismo, trazendo charme e rusticidade para ambientes.",
+        "imagem": "img/artesanato2.jpg"
+      },
+      {
+        "preco": "R$30,99 - R$72,90",
+        "nome": "Arupembas",
+        "descricao": "Artesanato em Rupembas, esculturas únicas e criativas, representando a cultura e a arte local, ideais para colecionadores e decoração de ambientes.",
+        "imagem": "img/artesanato3.jpg"
+      }
+    ]
+  }
+  
